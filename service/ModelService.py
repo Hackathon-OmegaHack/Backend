@@ -67,8 +67,6 @@ class ModelService:
             df_prediccion = pd.DataFrame(df_prediccion, columns=columnas)
             prediccionEncendidos = pd.DataFrame(prediccionEncendidos, columns=columnas)
 
-            print(inputPandasDataFrame)
-
             PrediccionesWattsDataFrame = inputPandasDataFrame.join(df_prediccion)
             PrediccionesEncendidosDataFrame = inputPandasDataFrame.join(prediccionEncendidos)
             result = self.convertirJson([PrediccionesWattsDataFrame, PrediccionesEncendidosDataFrame])
