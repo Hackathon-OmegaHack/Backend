@@ -1,5 +1,6 @@
 
 import joblib
+from pathlib import Path
 
 from schema.WattsDesagregado import WattsDesagregado, example_WattsDesagregado
 from schema.WattsTotal import WattsTotal
@@ -11,7 +12,7 @@ class ModelService:
         pass
     def cargar_modelo(self):
         try:
-            modelo = joblib.load(r"C:\Users\user2\Documents\azul\Backend\service\modelo.h5")
+            modelo = joblib.load(Path().absolute() / "service" / "modelo.h5")
             return modelo
         except Exception as e:
             print('Error al cargar el : {}'.format(e))

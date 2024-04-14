@@ -9,7 +9,7 @@ from service.ModelService import ModelService
 import pandas as pd
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-
+from pathlib import Path
 app = FastAPI()
 
 origins = ["*"]
@@ -24,6 +24,7 @@ app.add_middleware(
 
 @app.post("/", response_model= WattsDesagregado)
 def read_root(wattsTotal: WattsTotal = Body(example =example_WattsTotal )):
+    print(Path().absolute())
     wattsTotal_dicta = wattsTotal.dict()
     return example_WattsDesagregado
 @app.post("/upload-csv/", response_model = ResultadoCSV)
